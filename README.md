@@ -1,22 +1,22 @@
-## Football Project Documentation
+# Football Project Documentation
 
 This document provides instructions on how to set up and run the football application, including the Next.js frontend, the NestJS backend, and a MongoDB database. All components are managed using Docker.
 
-## Prerequisites
+# Prerequisites
 
 Ensure you have the following installed on your machine:
 
 Docker
 
-# and
+## and
 
 Docker Compose
 
-# and
+## and
 
 Node.js and npm
 
-## Getting Started
+# Getting Started
 
 Steps to Run the Project
 
@@ -29,43 +29,43 @@ Steps to Run the Project
 
 Content of the Dockerfile for the Backend:
 
-# Utiliser une image de base contenant Node.js 18 pour construire l'application
+## Utiliser une image de base contenant Node.js 18 pour construire l'application
 
 FROM node:18 AS build
 
-# Définir le répertoire de travail
+## Définir le répertoire de travail
 
 WORKDIR /app
 
-# Copier le fichier package.json et package-lock.json (si présent)
+## Copier le fichier package.json et package-lock.json (si présent)
 
 COPY package\*.json ./
 
-# Installer les dépendances
+## Installer les dépendances
 
 RUN npm install
 
-# Copier tout le reste du code source
+## Copier tout le reste du code source
 
 COPY . .
 
-# Construire l'application pour la production
+## Construire l'application pour la production
 
 RUN npm run build
 
-# Utiliser une image de base plus légère pour servir l'application
+## Utiliser une image de base plus légère pour servir l'application
 
 FROM nginx:alpine
 
-# Copier les fichiers de build dans le répertoire de nginx
+## Copier les fichiers de build dans le répertoire de nginx
 
 COPY --from=build /app/build /usr/share/nginx/html
 
-# Exposer le port 80
+## Exposer le port 80
 
 EXPOSE 80
 
-# Démarrer nginx
+## Démarrer nginx
 
 CMD ["nginx", "-g", "daemon off;"]
 
@@ -109,7 +109,7 @@ driver: bridge
 
 5. Install Dependencies and Build the Applications
 
-# Backend
+## Backend
 
 Navigate to the backend directory, install dependencies, and start the backend server:
 
@@ -117,7 +117,7 @@ cd backend
 npm install
 npm start
 
-# Frontend
+## Frontend
 
 Navigate to the frontend directory, install dependencies, and start the frontend server:
 
