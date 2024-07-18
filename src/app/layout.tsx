@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { I18nextProvider } from "react-i18next";
+import i18n from "../utility/types/i18n";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,7 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+      </body>
     </html>
   );
 }

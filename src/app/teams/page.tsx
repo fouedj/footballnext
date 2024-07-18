@@ -3,16 +3,14 @@ import HomeContainer from "@/components/Home";
 import AutoComplete from "@/components/AutoCompleteServer";
 
 interface TeamsPageProps {
-  searchParams: {
-    league?: string;
-  };
+  params: { league?: string };
 }
 
-const TeamsPage: React.FC<TeamsPageProps> = ({ searchParams }) => {
+const TeamsPage: React.FC<TeamsPageProps> = ({ params }) => {
   return (
     <div className="bg-white">
       <AutoComplete />
-      <HomeContainer searchItem={searchParams.league || ""} />
+      <HomeContainer searchItem={params.league || ""} />
     </div>
   );
 };
